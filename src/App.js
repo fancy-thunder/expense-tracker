@@ -1,10 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ExpenseForm from "./components/ExpenseForm.js";
 import ExpenseList from "./components/ExpenseList";
 import "./App.css";
 
 function App() {
-  const [expenses, setExpenses] = useState([]);
+  const [expenses, setExpenses] = useState(() => {
+    const saved = localStorage.getItem("expenses");
+    return saved ? JSON.parse(saved) : [];
+  });
+
+   useEffect(() => {
+     localStorage.setItem("expenses", JSON.stringify(expenses));
+   }, [expenses]);
+  
 
   const handleAddExpense = (expense) => {
     setExpenses([expense, ...expenses]);
