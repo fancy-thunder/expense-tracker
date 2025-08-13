@@ -19,7 +19,6 @@ function App() {
       </header>
       <main>
         <ExpenseForm onAddExpense={handleAddExpense} />
-        <ExpenseList expenses={expenses} />
         <ExpenseList
           expenses={expenses}
           onDeleteExpense={handleDeleteExpense}
