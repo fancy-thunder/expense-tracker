@@ -34,7 +34,7 @@ function App() {
           expenses={expenses}
           onDeleteExpense={handleDeleteExpense}
         />
-        <div style={{ marginTop: "2em", fontWeight: "bold" }}>
+        <div className="total" style={{ marginTop: "2em", fontWeight: "bold" }}>
           Total Spent: ₹{total.toFixed(2)}
         </div>
       </main>
