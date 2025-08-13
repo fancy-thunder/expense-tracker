@@ -12,6 +12,8 @@ function App() {
   const handleDeleteExpense = (id) => {
     setExpenses(expenses.filter((expense) => expense.id !== id));
   };
+
+  const total = expenses.reduce((sum, expense) => sum + expense.amount, 0);
   return (
     <div>
       <header>
@@ -23,6 +25,9 @@ function App() {
           expenses={expenses}
           onDeleteExpense={handleDeleteExpense}
         />
+        <div style={{ marginTop: "2em", fontWeight: "bold" }}>
+          Total Spent: ₹{total.toFixed(2)}
+        </div>
       </main>
     </div>
   );
