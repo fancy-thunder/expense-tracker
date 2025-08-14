@@ -3,6 +3,7 @@ import ExpenseForm from "./components/ExpenseForm.js";
 import ExpenseList from "./components/ExpenseList";
 import "./App.css";
 import Header from "./components/Header";
+import Sidebar from "./components/Sidebar";
 
 function App() {
   const [expenses, setExpenses] = useState(() => {
@@ -23,10 +24,15 @@ function App() {
     setExpenses(expenses.filter((expense) => expense.id !== id));
   };
 
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+
+   const handleSidebarToggle = () => setSidebarOpen((open) => !open);
+
   const total = expenses.reduce((sum, expense) => sum + expense.amount, 0);
   return (
     <div>
-      <Header/>
+      <Header onHamburgerClick={handleSidebarToggle} />
+      <Sidebar onClose={() => setSidebarOpen(false)} open={sidebarOpen} />
       <main>
         <ExpenseForm onAddExpense={handleAddExpense} />
         <ExpenseList

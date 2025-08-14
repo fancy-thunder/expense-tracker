@@ -9,11 +9,15 @@ function getGreeting() {
   return "Good night";
 }
 
-function Header() {
+function Header({ onHamburgerClick }) {
   return (
     <header className="header">
       <div className="header__left">
-        <button className="hamburger" aria-label="Open menu">
+        <button
+          className="hamburger"
+          aria-label="Open menu"
+          onClick={onHamburgerClick}
+        >
           <span />
           <span />
           <span />
