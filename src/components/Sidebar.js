@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./Sidebar.css";
 import {
   FaHome,
@@ -12,6 +12,11 @@ import {
 
 function getFormattedDate() {
   const now = new Date();
+  const timeStr = now.toLocaleTimeString(undefined, {
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: true,
+  });
   const dayName = now.toLocaleDateString(undefined, { weekday: "long" });
   const dateStr = now.toLocaleDateString(undefined, {
     year: "numeric",
@@ -19,6 +24,7 @@ function getFormattedDate() {
     day: "numeric",
   });
   return {
+    timeStr,
     today: now.toLocaleDateString(),
     dayName,
     dateStr,
@@ -30,30 +36,40 @@ export default function Sidebar({
   onClose,
   profileName = "Avishek Sen",
 }) {
-  <button
-    onClick={onClose}
-    aria-label="close sidebar"
-    className="sidebar-close-btn"
-    style={{
-      background: "none",
-      border: "none",
-      fontSize: "1.5em",
-      cursor: "pointer",
-      position: "absolute",
-      top: "1em",
-      right: "1em",
-    }}
-  >
-    ×
-  </button>;
-  const { today, dayName, dateStr } = getFormattedDate();
+  const [dateInfo, setDateInfo] = useState(getFormattedDate());
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setDateInfo(getFormattedDate());
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const { timeStr, today, dayName, dateStr } = dateInfo;
 
   return (
     <div className={`sidebar-drawer${open ? " open" : ""}`}>
       <div className="sidebar-overlay" onClick={onClose} />
       <aside className="sidebar-content">
+        <button
+          onClick={onClose}
+          aria-label="close sidebar"
+          className="sidebar-close-btn"
+          style={{
+            background: "none",
+            border: "none",
+            fontSize: "1.5em",
+            cursor: "pointer",
+            position: "absolute",
+            top: "1em",
+            right: "1em",
+          }}
+        >
+          ×
+        </button>
         <div className="sidebar-header">
-          <div className="sidebar-date">{today}</div>
+          <div className="sidebar-time">{timeStr}</div>
           <div className="sidebar-day">{dayName}</div>
           <div className="sidebar-full-date">{dateStr}</div>
         </div>

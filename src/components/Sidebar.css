@@ -41,12 +41,19 @@
   padding: 2rem 1.5rem 1rem 1.5rem;
   border-bottom: 1px solid #e0e7ef;
   font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;      /* Center horizontally */
+  justify-content: center;
 }
 .sidebar-date {
   font-size: 1.1rem;
   color: #6366f1;
   font-weight: 600;
   font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
 }
 .sidebar-day {
   font-size: 1.3rem;
@@ -92,4 +99,12 @@
 }
 .sidebar-spacer {
   height: 2.5em;
+}
+
+.sidebar-time{
+   font-size: 2rem;        
+    font-weight: bold;      
+    color: #2d3748;         
+    margin-top: 0.5em;      
+    letter-spacing: 0.05em;
 }
