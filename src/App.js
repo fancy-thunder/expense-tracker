@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import ExpenseForm from "./components/ExpenseForm.js";
 import ExpenseList from "./components/ExpenseList";
 import "./App.css";
+import Header from "./components/Header";
 
 function App() {
   const [expenses, setExpenses] = useState(() => {
@@ -25,9 +26,7 @@ function App() {
   const total = expenses.reduce((sum, expense) => sum + expense.amount, 0);
   return (
     <div>
-      <header>
-        <h1>Expense Tracker</h1>
-      </header>
+      <Header/>
       <main>
         <ExpenseForm onAddExpense={handleAddExpense} />
         <ExpenseList
