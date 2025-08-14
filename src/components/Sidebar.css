@@ -4,6 +4,7 @@
   width: 100vw; height: 100vh;
   pointer-events: none;
   z-index: 1000;
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
 }
 .sidebar-drawer.open {
   pointer-events: auto;
@@ -31,6 +32,7 @@
   transition: transform 0.25s cubic-bezier(.4,0,.2,1);
   display: flex;
   flex-direction: column;
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
 }
 .sidebar-drawer.open .sidebar-content {
   transform: translateX(0);
@@ -38,11 +40,13 @@
 .sidebar-header {
   padding: 2rem 1.5rem 1rem 1.5rem;
   border-bottom: 1px solid #e0e7ef;
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
 }
 .sidebar-date {
   font-size: 1.1rem;
   color: #6366f1;
   font-weight: 600;
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
 }
 .sidebar-day {
   font-size: 1.3rem;
@@ -53,6 +57,7 @@
   font-size: 1rem;
   color: #64748b;
   margin-top: 0.25em;
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
 }
 .sidebar-nav {
   flex: 1;
@@ -60,6 +65,7 @@
   flex-direction: column;
   justify-content: space-between;
   padding: 1.5rem 0;
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
 }
 .sidebar-nav ul {
   list-style: none;
@@ -79,9 +85,10 @@
   background: #f1f5f9;
 }
 .sidebar-icon {
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
   margin-right: 1em;
   font-size: 1.3em;
-  color: #6366f1;
+  color: #4a5568;
 }
 .sidebar-spacer {
   height: 2.5em;
